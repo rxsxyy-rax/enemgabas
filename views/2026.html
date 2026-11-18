@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 | EnemGabas</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="brand"><h1>EnemGabas</h1></a>
+        <p class="subtitle">Gabarito extraoficial · Enem 2026</p>
+    </header>
+
+    <section id="info" class="info">
+        <div id="info-dados"></div>
+        <p>Alternativas em âmbar = divergência entre as fontes. Clique numa alternativa para ver o que cada fonte marcou (no modo de marcação: clique com o botão direito ou pressione e segure).</p>
+    </section>
+
+    <div class="marking-bar">
+        <button type="button" id="marcar" aria-pressed="false"
+                data-on="Modo de marcação: ligado" data-off="Modo de marcação: desligado">Modo de marcação: desligado</button>
+        <button type="button" id="limpar" data-confirm="Apagar todas as marcações?">Limpar marcações</button>
+        <span class="marking-hint">1º clique: certa · 2º clique: errada · 3º clique: limpa · botão direito/segurar: fontes</span>
+        <div class="caderno-selects">
+            <label id="sel-dia1" hidden>Caderno do 1º dia: <select id="caderno-dia1"><option value="">Todos</option></select></label>
+            <label id="sel-dia2" hidden>Caderno do 2º dia: <select id="caderno-dia2"><option value="">Todos</option></select></label>
+        </div>
+    </div>
+
+    <hr>
+    <h2>Dia 1:</h2>
+    <h3>Linguagens, Códigos e suas Tecnologias</h3>
+    <div id="lc" class="area">
+        <p class="counter">✔ <span class="ok">0</span> certas · ✘ <span class="bad">0</span> erradas · <span class="total">0</span> marcadas (<span class="pct">0</span>% de acerto)</p>
+        <div id="lc-linguas" hidden>
+            <label id="lingua-sel" hidden>Língua estrangeira:
+                <select id="lingua">
+                    <option value="ingles_1a5">Inglês</option>
+                    <option value="espanhol_1a5">Espanhol</option>
+                </select>
+            </label>
+            <div data-lingua="ingles_1a5" hidden><h4>Inglês (1-5)</h4></div>
+            <div data-lingua="espanhol_1a5" hidden><h4>Espanhol (1-5)</h4></div>
+            <h4>Questões 6-45</h4>
+        </div>
+        <div id="lc-questoes"></div>
+    </div>
+    <h3>Ciências Humanas e suas Tecnologias</h3>
+    <div id="ch" class="area">
+        <p class="counter">✔ <span class="ok">0</span> certas · ✘ <span class="bad">0</span> erradas · <span class="total">0</span> marcadas (<span class="pct">0</span>% de acerto)</p>
+    </div>
+    <hr>
+    <h2>Dia 2:</h2>
+    <h3>Ciências da Natureza e suas Tecnologias</h3>
+    <div id="cn" class="area">
+        <p class="counter">✔ <span class="ok">0</span> certas · ✘ <span class="bad">0</span> erradas · <span class="total">0</span> marcadas (<span class="pct">0</span>% de acerto)</p>
+    </div>
+    <h3>Matemática e suas Tecnologias</h3>
+    <div id="mt" class="area">
+        <p class="counter">✔ <span class="ok">0</span> certas · ✘ <span class="bad">0</span> erradas · <span class="total">0</span> marcadas (<span class="pct">0</span>% de acerto)</p>
+    </div>
+    <hr>
+    <h2>Total:</h2>
+    <div id="geral" class="area">
+        <p class="counter">✔ <span class="ok">0</span> certas · ✘ <span class="bad">0</span> erradas · <span class="total">0</span> marcadas (<span class="pct">0</span>% de acerto)</p>
+    </div>
+    <hr>
+    <h2>Fontes:</h2>
+    <ul id="fontes"></ul>
+
+    <footer class="site-footer">
+        <a href="/">← Voltar ao início</a>
+        <span>EnemGabas · gabaritos extraoficiais</span>
+    </footer>
+
+    <template id="popover-tpl">
+        <div class="popover" role="dialog">
+            <strong>Questão <span class="pop-q"></span> — <span class="pop-caderno"></span></strong>
+            <p class="pop-status pop-igual">Todas as fontes concordam.</p>
+            <p class="pop-status divergente pop-diverge">As fontes divergem.</p>
+            <ul class="pop-votos"></ul>
+            <p class="pop-final">Resposta exibida: <span class="pop-letra"></span></p>
+        </div>
+    </template>
+
+    <script src="/data/processing.js" data-json="/data/2026.json"></script>
+</body>
+</html>

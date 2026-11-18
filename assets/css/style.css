@@ -1,0 +1,220 @@
+/* EnemGabas — dark theme */
+:root {
+  color-scheme: dark;
+  --bg: #0f1115;
+  --surface: #171a21;
+  --surface-2: #1e222b;
+  --border: #2a2f3a;
+  --text: #e6e8ee;
+  --muted: #9aa3b2;
+  --accent: #7c9cff;
+  --accent-2: #a78bfa;
+  --warn: #f5b84b;
+  --radius: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 32px 16px 64px;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h2 { margin: 32px 0 12px; font-size: 1.4rem; }
+h3 { margin: 24px 0 10px; font-size: 1.1rem; color: var(--accent); }
+h4 { margin: 16px 0 8px; font-size: 0.95rem; color: var(--muted); }
+
+p { color: var(--muted); }
+
+hr { border: 0; border-top: 1px solid var(--border); margin: 28px 0; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul { padding-left: 20px; }
+li { margin: 4px 0; }
+li::marker { color: var(--accent); }
+
+/* Header / footer (shared by every page) */
+.site-header { margin-bottom: 8px; }
+.site-header .brand { display: inline-block; text-decoration: none; }
+.site-header .subtitle { margin: 0; font-size: 0.95rem; }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Info box */
+.info {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 4px 16px;
+  margin-top: 16px;
+}
+.info strong { color: var(--text); }
+#info-dados ul { margin: 8px 0; }
+
+/* Year list (home) */
+.year-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.year-list li { margin: 0; }
+.year-list a {
+  display: inline-block;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 600;
+}
+.year-list a:hover { border-color: var(--accent); text-decoration: none; }
+
+[hidden] { display: none !important; }
+
+/* Answer buttons */
+.answers { display: grid; gap: 16px; margin-bottom: 16px; }
+
+.caderno-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+.caderno-group h5 { margin: 0 0 10px; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 6px;
+}
+
+button.ans {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 4px;
+  background: var(--surface-2);
+  font-variant-numeric: tabular-nums;
+}
+button.ans .q { font-size: 0.7rem; color: var(--muted); }
+button.ans .l { font-size: 1.1rem; font-weight: 700; }
+button.ans:disabled { opacity: 0.4; cursor: default; }
+button.ans:disabled:hover { border-color: var(--border); }
+
+/* Divergent answers */
+button.ans.divergente { border-color: rgba(245, 184, 75, 0.45); }
+button.ans.divergente .l { color: var(--warn); }
+
+/* Marking mode */
+:root { --ok: #4ade80; --bad: #f87171; }
+
+.marking-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 0;
+  background: var(--bg);
+}
+
+button {
+  padding: 6px 12px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+.marking-hint { color: var(--muted); font-size: 0.8rem; }
+
+.counter {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 4px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sources popover */
+.popover {
+  position: absolute;
+  z-index: 10;
+  min-width: 200px;
+  max-width: calc(100vw - 16px);
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-size: 0.9rem;
+}
+.popover p { margin: 4px 0 8px; font-size: 0.8rem; }
+.popover .pop-status.divergente { color: var(--warn); }
+.popover ul { list-style: none; margin: 0; padding: 0; }
+.popover li { display: flex; justify-content: space-between; gap: 16px; margin: 0; padding: 4px 0; border-top: 1px solid var(--border); }
+.popover li b { color: var(--ok); }
+.popover li.diferente b { color: var(--warn); }
+.popover .pop-final { margin: 8px 0 0; color: var(--text); }
+body.marking button.ans[data-mark] { user-select: none; }
+button.ans.certa { background: rgba(74, 222, 128, 0.18); border-color: var(--ok); }
+button.ans.errada { background: rgba(248, 113, 113, 0.18); border-color: var(--bad); }
+button.ans.certa .l { color: var(--ok); }
+button.ans.errada .l { color: var(--bad); text-decoration: line-through; }
+
+/* Language selector */
+label { color: var(--muted); font-size: 0.9rem; }
+
+select {
+  margin-left: 6px;
+  padding: 6px 10px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Notebook selectors: own row, below the hint */
+.caderno-selects { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 8px 16px; }

@@ -1,0 +1,118 @@
+{
+  "_info": "Gabaritos EXTRAOFICIAIS do Enem 2026. Cada string tem 90 letras em ordem (caderno 1-4: questões 1-90, com Inglês nas 1-5; caderno 5-8: questões 91-180).",
+  "_cadernos": {
+    "1": "Azul (1º dia)",
+    "2": "Amarelo (1º dia)",
+    "3": "Branco (1º dia)",
+    "4": "Verde (1º dia)",
+    "5": "Amarelo (2º dia)",
+    "6": "Cinza (2º dia)",
+    "7": "Azul (2º dia)",
+    "8": "Verde (2º dia)"
+  },
+  "1": "DBCABDBCABEEDBEABCDCECCEAACADCBABABCDEDECCCDEBEDDDEAECBAADCABBAEAACDEDBEDABDEECBEACAE",
+  "2": "EDBCDBABBCBEAEABDBCEDEACACEAABBECDCBABCDCDECCAECBAADDEBEDDDBEDACAEBAEABDEEACDECABCBEA",
+  "3": "EABBACDBEDDBCBCBBEACEACECEDEACAABCDABDCBCCDECDEBEDDAADAECBBAEACABCAEACDECBEABDEEDBEDA",
+  "4": "BEADCBBACEBCBDBCEABACAEDEEDCABCDDCBCEAABDECCCAADAECBBEDDDECAEDBEDACABCBEABAEAACDEBDEE",
+  "5": "DECEDECBCCCCCCDAECEEABDBDCBADCEBAABCEAAAEDDCBBEDABAABCDECAEECDCCACCDCDDBDCEDAEEBBBBBEDDAAC",
+  "6": "CBCCCCECEDECEABDEDECCDADDCBBDCBADAAAECEBAABCECDECAEECBAABBEDADDBDCEACCDCDCCBDDAEEDABBBACEB",
+  "7": "CCCBCCDECECEBDEACCDAEDECBADDDCBBDCEBAABCEAAAEAEECCDECBEDABAABDCEDDBDCCACCDCDDABDAEEACBBBBE",
+  "8": "ECEDECCCCBCCEDECCDABDBDAAAEEAABCEDDCBCBADCEBABAABBEDAAEECCDECACCDCDCCDCEDDBEEDADDABEBACBBB",
+  "ingles_1a5": {
+    "1": "BAEDC",
+    "2": "ECDBA",
+    "3": "CBAED",
+    "4": "DBCAE"
+  },
+  "espanhol_1a5": {
+    "1": "AACBD",
+    "2": "AADBC",
+    "3": "CAADB",
+    "4": "BDCAA"
+  },
+  "divergencias": {
+    "1": {
+      "13": "estrategia:C / aprovatotal:D / coc:B",
+      "24": "estrategia:B / aprovatotal:D / coc:D",
+      "26": "estrategia:E / aprovatotal:B / coc:E",
+      "30": "estrategia:A / aprovatotal:E / coc:A",
+      "43": "estrategia:E / aprovatotal:E / coc:B",
+      "44": "estrategia:D / aprovatotal:A / coc:D",
+      "45": "estrategia:E / aprovatotal:E / coc:D",
+      "71": "estrategia:A / aprovatotal:B / coc:A",
+      "83": "estrategia:E / aprovatotal:A / coc:E"
+    },
+    "2": {
+      "8": "estrategia:B / aprovatotal:D",
+      "9": "estrategia:C / aprovatotal:D",
+      "26": "estrategia:D / aprovatotal:A",
+      "33": "estrategia:A / aprovatotal:E",
+      "36": "estrategia:B / aprovatotal:C",
+      "37": "estrategia:E / aprovatotal:B",
+      "79": "estrategia:E / aprovatotal:A",
+      "80": "estrategia:A / aprovatotal:B"
+    },
+    "3": {
+      "11": "estrategia:C / aprovatotal:D",
+      "21": "estrategia:B / aprovatotal:D",
+      "27": "estrategia:A / aprovatotal:E",
+      "29": "estrategia:E / aprovatotal:B",
+      "32": "estrategia:D / aprovatotal:A",
+      "74": "estrategia:A / aprovatotal:B",
+      "85": "estrategia:E / aprovatotal:A"
+    },
+    "4": {
+      "10": "estrategia:C / aprovatotal:D",
+      "15": "estrategia:E / aprovatotal:B",
+      "18": "estrategia:B / aprovatotal:D",
+      "29": "estrategia:D / aprovatotal:A",
+      "43": "estrategia:A / aprovatotal:E",
+      "83": "estrategia:A / aprovatotal:B",
+      "90": "estrategia:E / aprovatotal:A"
+    },
+    "7": {
+      "121": "estrategia:B / aprovatotal:B / coc:C"
+    },
+    "8": {
+      "176": "estrategia:A / aprovatotal:B",
+      "177": "estrategia:C / aprovatotal:B",
+      "178": "estrategia:B / aprovatotal:A",
+      "179": "estrategia:B / aprovatotal:A",
+      "180": "estrategia:B / aprovatotal:C"
+    }
+  },
+  "avisos": [
+    "Resposta = maioria entre as fontes; em caso de empate (só 2 fontes cobrem os cadernos 2, 3, 4, 5, 6 e 8) foi mantida a do Estratégia. Ver 'divergencias'.",
+    "O gabarito oficial do Inep (previsto para 18/11/2026) prevalece sobre este."
+  ],
+  "fontes": [
+    {
+      "nome": "Estratégia Vestibulares – 1º dia (todas as cores)",
+      "url": "https://vestibulares.estrategia.com/portal/noticias/gabarito-enem-2026-correcao-do-1o-dia-de-prova/"
+    },
+    {
+      "nome": "Estratégia Vestibulares – 2º dia azul",
+      "url": "https://vestibulares.estrategia.com/portal/?p=162229"
+    },
+    {
+      "nome": "Estratégia Vestibulares – 2º dia amarela",
+      "url": "https://vestibulares.estrategia.com/portal/?p=162219"
+    },
+    {
+      "nome": "Estratégia Vestibulares – 2º dia cinza",
+      "url": "https://vestibulares.estrategia.com/portal/?p=162235"
+    },
+    {
+      "nome": "Estratégia Vestibulares – 2º dia verde",
+      "url": "https://vestibulares.estrategia.com/portal/?p=162224"
+    },
+    {
+      "nome": "Aprova Total – 1º e 2º dia (todas as cores)",
+      "url": "https://aprovatotal.com.br/gabarito-enem-2026/"
+    },
+    {
+      "nome": "PrePara Enem / Sistema COC – 1º e 2º dia (caderno azul)",
+      "url": "https://www.preparaenem.com/enem/correcao-enem-2026.htm"
+    }
+  ]
+}
