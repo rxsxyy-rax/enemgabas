@@ -132,6 +132,10 @@ button.ans:disabled:hover { border-color: var(--border); }
 button.ans.divergente { border-color: rgba(245, 184, 75, 0.45); }
 button.ans.divergente .l { color: var(--warn); }
 
+/* Questions annulled by the official key */
+button.ans.anulada { border-style: dashed; }
+button.ans.anulada .l { color: var(--muted); }
+
 /* Marking mode */
 :root { --ok: #4ade80; --bad: #f87171; }
 

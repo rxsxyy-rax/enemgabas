@@ -31,9 +31,13 @@
   // Per-button source details, shown in the popover.
   const details = new WeakMap();
 
-  const FONTE_NOMES = { estrategia: "Estratégia", aprovatotal: "Aprova Total", coc: "COC" };
+  const FONTE_NOMES = { inep: "Inep (oficial)", estrategia: "Estratégia", aprovatotal: "Aprova Total", coc: "COC" };
   let fonteNomes = FONTE_NOMES;
   const fonteName = (k) => fonteNomes[k] || k;
+
+  // "X" marks a question annulled by the official key.
+  const ANULADA = "X";
+  const letterText = (l) => (l === ANULADA ? "Anulada" : l);
 
   // ---- Popover (structure comes from <template id="popover-tpl">) ----
   let popover = null;
@@ -58,13 +62,13 @@
     popover.querySelector(".pop-caderno").textContent = d.caderno;
     popover.querySelector(".pop-igual").hidden = d.divergente;
     popover.querySelector(".pop-diverge").hidden = !d.divergente;
-    popover.querySelector(".pop-letra").textContent = d.letter;
+    popover.querySelector(".pop-letra").textContent = letterText(d.letter);
     const ul = popover.querySelector(".pop-votos");
     ul.replaceChildren();
     d.votos.forEach((v) => {
       const li = ul.appendChild(el("li", null, { class: v.letra === d.letter ? "" : "diferente" }));
       li.appendChild(el("span", fonteName(v.fonte)));
-      li.appendChild(el("b", v.letra));
+      li.appendChild(el("b", letterText(v.letra)));
     });
 
     popover.hidden = false;
@@ -113,8 +117,9 @@
       .filter(([fonte, letra]) => fonte && letra)
       .map(([fonte, letra]) => ({ fonte, letra }));
 
-    // Sources that cover each caderno, inferred from the divergence entries
-    // (falls back to every source seen anywhere).
+    // Sources that cover each caderno: taken from "_fontes_por_caderno" when present
+    // (first = primary source), otherwise inferred from the divergence entries
+    // (falling back to every source seen anywhere).
     const allSources = new Set();
     const cadernoSources = {};
     Object.entries(data.divergencias || {}).forEach(([c, qs]) => {
@@ -124,7 +129,11 @@
         allSources.add(fonte);
       }));
     });
-    const sourcesOf = (c) => [...(cadernoSources[c] && cadernoSources[c].size ? cadernoSources[c] : allSources)];
+    const sourcesOf = (c) => {
+      const listed = data._fontes_por_caderno && data._fontes_por_caderno[c];
+      if (listed && listed.length) return listed;
+      return [...(cadernoSources[c] && cadernoSources[c].size ? cadernoSources[c] : allSources)];
+    };
 
     function votesFor(c, q, letter) {
       const d = data.divergencias && data.divergencias[c];
@@ -156,12 +165,13 @@
             btn.setAttribute("aria-label", `${q}: -`);
             return;
           }
+          if (letter === ANULADA) btn.classList.add("anulada");
           const info = votesFor(c, q, letter);
           details.set(btn, { q, caderno: cadernoName(c), letter, ...info });
           if (info.divergente) btn.classList.add("divergente");
-          const resumo = info.votos.map((v) => `${fonteName(v.fonte)}: ${v.letra}`).join(" · ");
+          const resumo = info.votos.map((v) => `${fonteName(v.fonte)}: ${letterText(v.letra)}`).join(" · ");
           btn.title = resumo;
-          btn.setAttribute("aria-label", `${q}: ${letter}. ${resumo}`);
+          btn.setAttribute("aria-label", `${q}: ${letterText(letter)}. ${resumo}`);
         });
       });
       return wrap;
@@ -274,7 +284,8 @@
       box.querySelectorAll(".answers").forEach((answers, ai) => {
         answers.querySelectorAll(".caderno-group").forEach((group) => {
           group.querySelectorAll("button.ans").forEach((btn) => {
-            if (btn.disabled) return;
+            // Annulled questions can't be right or wrong, so they are not markable.
+            if (btn.disabled || btn.classList.contains("anulada")) return;
             const q = btn.querySelector(".q").textContent;
             btn.dataset.mark = `${sec}-${ai}-${group.dataset.caderno}-${q}`;
             btn.dataset.section = sec;

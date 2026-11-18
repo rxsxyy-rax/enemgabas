@@ -1,5 +1,5 @@
 {
-  "_info": "Gabaritos EXTRAOFICIAIS do Enem 2026. Cada string tem 90 letras em ordem (caderno 1-4: questões 1-90, com Inglês nas 1-5; caderno 5-8: questões 91-180).",
+  "_info": "Gabarito OFICIAL do Enem 2026 (Inep, divulgado em 18/11/2026). Cada string tem as respostas em ordem (cadernos 1-4: questões 6-90, com Inglês/Espanhol 1-5 à parte; cadernos 5-8: questões 91-180). X = questão anulada.",
   "_cadernos": {
     "1": "Azul (1º dia)",
     "2": "Amarelo (1º dia)",
@@ -10,14 +10,88 @@
     "7": "Azul (2º dia)",
     "8": "Verde (2º dia)"
   },
-  "1": "DBCABDBCABEEDBEABCDCECCEAACADCBABABCDEDECCCDEBEDDDEAECBAADCABBAEAACDEDBEDABDEECBEACAE",
-  "2": "EDBCDBABBCBEAEABDBCEDEACACEAABBECDCBABCDCDECCAECBAADDEBEDDDBEDACAEBAEABDEEACDECABCBEA",
-  "3": "EABBACDBEDDBCBCBBEACEACECEDEACAABCDABDCBCCDECDEBEDDAADAECBBAEACABCAEACDECBEABDEEDBEDA",
-  "4": "BEADCBBACEBCBDBCEABACAEDEEDCABCDDCBCEAABDECCCAADAECBBEDDDECAEDBEDACABCBEABAEAACDEBDEE",
-  "5": "DECEDECBCCCCCCDAECEEABDBDCBADCEBAABCEAAAEDDCBBEDABAABCDECAEECDCCACCDCDDBDCEDAEEBBBBBEDDAAC",
-  "6": "CBCCCCECEDECEABDEDECCDADDCBBDCBADAAAECEBAABCECDECAEECBAABBEDADDBDCEACCDCDCCBDDAEEDABBBACEB",
-  "7": "CCCBCCDECECEBDEACCDAEDECBADDDCBBDCEBAABCEAAAEAEECCDECBEDABAABDCEDDBDCCACCDCDDABDAEEACBBBBE",
-  "8": "ECEDECCCCBCCEDECCDABDBDAAAEEAABCEDDCBCBADCEBABAABBEDAAEECCDECACCDCDCCDCEDDBEEDADDABEBACBBB",
+  "_fonte_principal": "inep",
+  "_fontes_nomes": {
+    "inep": "Inep (oficial)",
+    "estrategia": "Estratégia",
+    "aprovatotal": "Aprova Total",
+    "coc": "COC",
+    "estuda": "Estuda.com",
+    "oglobo": "O Globo (Elite/Amplia)",
+    "estudoplay": "Estudo Play",
+    "enemwiki": "ENEM Wiki",
+    "sisu": "Sisu.pro.br"
+  },
+  "_fontes_por_caderno": {
+    "1": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "coc",
+      "estuda",
+      "oglobo"
+    ],
+    "2": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "estuda",
+      "oglobo"
+    ],
+    "3": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "estuda",
+      "oglobo"
+    ],
+    "4": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "estuda",
+      "oglobo"
+    ],
+    "5": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "estuda",
+      "estudoplay"
+    ],
+    "6": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "estuda",
+      "estudoplay"
+    ],
+    "7": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "coc",
+      "estuda",
+      "estudoplay",
+      "enemwiki",
+      "sisu"
+    ],
+    "8": [
+      "inep",
+      "estrategia",
+      "aprovatotal",
+      "estuda",
+      "estudoplay"
+    ]
+  },
+  "1": "DBCABDBDABEEDBEABCDCECCEAAAADCBABABCDEDECCCDEBEDDDEAECBAADCABBAEABCDEDBEDABDEECBEACAE",
+  "2": "EDDDDBABBCBEAEABDBCEDEAAACEAABCECDCBABCDCDECCAECBAADDEBEDDDBEDACAEBAEABDEEBCDECABCBEA",
+  "3": "EABBADDBEDDBCBCDBEACEACECEDEAAAABCDABDCBCCDECDEBEDDAADAECBBAEACABCAEBCDECBEABDEEDBEDA",
+  "4": "BEADDBBACEBCDDBCEABAAAEDEEDCABCDDCBCEAABDECCCAADAECBBEDDDECAEDBEDACABCBEABAEABCDEBDEE",
+  "5": "DECEDECBCCCCCCDAECEEABDBDCBADCEBAABCEAAAEDDCBBEDABAABCDECAEECDXCACCDCDDBDCEDAEEBBBBBEDDAAC",
+  "6": "CBCCCCECEDECEABDEDECCDADDCBBDCBADAAAECEBAABCECDECAEECBAABBEDADDBDCEACCDCDXCBDDAEEDABBBACEB",
+  "7": "CCCBCCDECECEBDEACCDAEDECBADDDCBBDCEBAABCEAAAEAEECCDECBEDABAABDCEDDBDXCACCDCDDABDAEEACBBBBE",
+  "8": "ECEDECCCCBCCEDECCDABDBDAAAEEAABCEDDCBCBADCEBABAABBEDAAEECCDECACCDCDXCDCEDDBEEDADDABEBACBBB",
   "ingles_1a5": {
     "1": "BAEDC",
     "2": "ECDBA",
@@ -32,60 +106,89 @@
   },
   "divergencias": {
     "1": {
-      "13": "estrategia:C / aprovatotal:D / coc:B",
-      "24": "estrategia:B / aprovatotal:D / coc:D",
-      "26": "estrategia:E / aprovatotal:B / coc:E",
-      "30": "estrategia:A / aprovatotal:E / coc:A",
-      "43": "estrategia:E / aprovatotal:E / coc:B",
-      "44": "estrategia:D / aprovatotal:A / coc:D",
-      "45": "estrategia:E / aprovatotal:E / coc:D",
-      "71": "estrategia:A / aprovatotal:B / coc:A",
-      "83": "estrategia:E / aprovatotal:A / coc:E"
+      "13": "inep:D / estrategia:C / aprovatotal:D / coc:B / estuda:D / oglobo:D",
+      "24": "inep:D / estrategia:B / aprovatotal:D / coc:D / estuda:C / oglobo:D",
+      "26": "inep:E / estrategia:E / aprovatotal:B / coc:E / estuda:E / oglobo:E",
+      "30": "inep:A / estrategia:A / aprovatotal:E / coc:A / estuda:A / oglobo:A",
+      "32": "inep:A / estrategia:C / aprovatotal:C / coc:C / estuda:C / oglobo:C",
+      "43": "inep:E / estrategia:E / aprovatotal:E / coc:B / estuda:E / oglobo:E",
+      "44": "inep:D / estrategia:D / aprovatotal:A / coc:D / estuda:D / oglobo:D",
+      "45": "inep:E / estrategia:E / aprovatotal:E / coc:D / estuda:E / oglobo:E",
+      "46": "inep:C / estrategia:C / aprovatotal:C / coc:C / estuda:D / oglobo:C",
+      "48": "inep:C / estrategia:C / aprovatotal:C / coc:C / estuda:C / oglobo:D",
+      "51": "inep:B / estrategia:B / aprovatotal:B / coc:B / estuda:E / oglobo:B",
+      "71": "inep:B / estrategia:A / aprovatotal:B / coc:A / estuda:A / oglobo:B",
+      "83": "inep:E / estrategia:E / aprovatotal:A / coc:E / estuda:E / oglobo:E"
     },
     "2": {
-      "8": "estrategia:B / aprovatotal:D",
-      "9": "estrategia:C / aprovatotal:D",
-      "26": "estrategia:D / aprovatotal:A",
-      "33": "estrategia:A / aprovatotal:E",
-      "36": "estrategia:B / aprovatotal:C",
-      "37": "estrategia:E / aprovatotal:B",
-      "79": "estrategia:E / aprovatotal:A",
-      "80": "estrategia:A / aprovatotal:B"
+      "8": "inep:D / estrategia:B / aprovatotal:D / estuda:C / oglobo:D",
+      "9": "inep:D / estrategia:C / aprovatotal:D / estuda:D / oglobo:D",
+      "26": "inep:D / estrategia:D / aprovatotal:A / estuda:D / oglobo:D",
+      "29": "inep:A / estrategia:C / aprovatotal:C / estuda:C / oglobo:C",
+      "33": "inep:A / estrategia:A / aprovatotal:E / estuda:A / oglobo:A",
+      "36": "inep:C / estrategia:B / aprovatotal:C / estuda:C / oglobo:C",
+      "37": "inep:E / estrategia:E / aprovatotal:B / estuda:E / oglobo:E",
+      "48": "inep:E / estrategia:E / aprovatotal:E / estuda:C / oglobo:E",
+      "49": "inep:C / estrategia:C / aprovatotal:C / estuda:D / oglobo:C",
+      "50": "inep:C / estrategia:C / aprovatotal:C / estuda:A / oglobo:C",
+      "51": "inep:A / estrategia:A / aprovatotal:A / estuda:E / oglobo:A",
+      "79": "inep:E / estrategia:E / aprovatotal:A / estuda:E / oglobo:E",
+      "80": "inep:B / estrategia:A / aprovatotal:B / estuda:A / oglobo:B"
     },
     "3": {
-      "11": "estrategia:C / aprovatotal:D",
-      "21": "estrategia:B / aprovatotal:D",
-      "27": "estrategia:A / aprovatotal:E",
-      "29": "estrategia:E / aprovatotal:B",
-      "32": "estrategia:D / aprovatotal:A",
-      "74": "estrategia:A / aprovatotal:B",
-      "85": "estrategia:E / aprovatotal:A"
+      "11": "inep:D / estrategia:C / aprovatotal:D / estuda:D / oglobo:D",
+      "21": "inep:D / estrategia:B / aprovatotal:D / estuda:C / oglobo:D",
+      "27": "inep:A / estrategia:A / aprovatotal:E / estuda:A / oglobo:A",
+      "29": "inep:E / estrategia:E / aprovatotal:B / estuda:E / oglobo:E",
+      "32": "inep:D / estrategia:D / aprovatotal:A / estuda:D / oglobo:D",
+      "35": "inep:A / estrategia:C / aprovatotal:C / estuda:C / oglobo:C",
+      "43": "inep:D / estrategia:D / aprovatotal:D / estuda:C / oglobo:D",
+      "47": "inep:C / estrategia:C / aprovatotal:C / estuda:D / oglobo:C",
+      "74": "inep:B / estrategia:A / aprovatotal:B / estuda:A / oglobo:B",
+      "85": "inep:E / estrategia:E / aprovatotal:A / estuda:E / oglobo:E"
     },
     "4": {
-      "10": "estrategia:C / aprovatotal:D",
-      "15": "estrategia:E / aprovatotal:B",
-      "18": "estrategia:B / aprovatotal:D",
-      "29": "estrategia:D / aprovatotal:A",
-      "43": "estrategia:A / aprovatotal:E",
-      "83": "estrategia:A / aprovatotal:B",
-      "90": "estrategia:E / aprovatotal:A"
+      "10": "inep:D / estrategia:C / aprovatotal:D / estuda:D / oglobo:D",
+      "15": "inep:E / estrategia:E / aprovatotal:B / estuda:E / oglobo:E",
+      "18": "inep:D / estrategia:B / aprovatotal:D / estuda:C / oglobo:D",
+      "26": "inep:A / estrategia:C / aprovatotal:C / estuda:C / oglobo:C",
+      "29": "inep:D / estrategia:D / aprovatotal:A / estuda:D / oglobo:D",
+      "43": "inep:A / estrategia:A / aprovatotal:E / estuda:A / oglobo:A",
+      "49": "inep:C / estrategia:C / aprovatotal:C / estuda:D / oglobo:C",
+      "83": "inep:B / estrategia:A / aprovatotal:B / estuda:A / oglobo:B",
+      "90": "inep:E / estrategia:E / aprovatotal:A / estuda:E / oglobo:E"
+    },
+    "5": {
+      "105": "inep:D / estrategia:D / aprovatotal:D / estuda:C / estudoplay:D",
+      "153": "inep:X / estrategia:C / aprovatotal:C / estuda:C / estudoplay:C"
+    },
+    "6": {
+      "164": "inep:X / estrategia:C / aprovatotal:C / estuda:C / estudoplay:C"
     },
     "7": {
-      "121": "estrategia:B / aprovatotal:B / coc:C"
+      "121": "inep:B / estrategia:B / aprovatotal:B / coc:C / estuda:B / estudoplay:B / enemwiki:B / sisu:B",
+      "153": "inep:C / estrategia:C / aprovatotal:C / coc:C / estuda:C / estudoplay:C / enemwiki:C / sisu:B",
+      "159": "inep:X / estrategia:C / aprovatotal:C / coc:C / estuda:C / estudoplay:C / enemwiki:C / sisu:C"
     },
     "8": {
-      "176": "estrategia:A / aprovatotal:B",
-      "177": "estrategia:C / aprovatotal:B",
-      "178": "estrategia:B / aprovatotal:A",
-      "179": "estrategia:B / aprovatotal:A",
-      "180": "estrategia:B / aprovatotal:C"
+      "158": "inep:X / estrategia:C / aprovatotal:C / estuda:C / estudoplay:C",
+      "176": "inep:A / estrategia:A / aprovatotal:B / estuda:A / estudoplay:A",
+      "177": "inep:C / estrategia:C / aprovatotal:B / estuda:C / estudoplay:C",
+      "178": "inep:B / estrategia:B / aprovatotal:A / estuda:B / estudoplay:B",
+      "179": "inep:B / estrategia:B / aprovatotal:A / estuda:B / estudoplay:B",
+      "180": "inep:B / estrategia:B / aprovatotal:C / estuda:B / estudoplay:B"
     }
   },
   "avisos": [
-    "Resposta = maioria entre as fontes; em caso de empate (só 2 fontes cobrem os cadernos 2, 3, 4, 5, 6 e 8) foi mantida a do Estratégia. Ver 'divergencias'.",
-    "O gabarito oficial do Inep (previsto para 18/11/2026) prevalece sobre este."
+    "Resposta exibida = gabarito oficial do Inep. As fontes extraoficiais aparecem como votos em cada questão; 'divergencias' lista as questões em que alguma delas difere do Inep.",
+    "Uma questão de Matemática foi anulada pelo Inep: 153 no caderno Amarelo, 164 no Cinza, 159 no Azul e 158 no Verde (2º dia).",
+    "O gabarito do Sisu.pro.br não indica a cor do caderno; foi atribuído ao Azul do 2º dia por coincidir com ele em 89 das 90 questões."
   ],
   "fontes": [
+    {
+      "nome": "Inep – Provas e Gabaritos (gabarito oficial)",
+      "url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos"
+    },
     {
       "nome": "Estratégia Vestibulares – 1º dia (todas as cores)",
       "url": "https://vestibulares.estrategia.com/portal/noticias/gabarito-enem-2026-correcao-do-1o-dia-de-prova/"
@@ -113,6 +216,30 @@
     {
       "nome": "PrePara Enem / Sistema COC – 1º e 2º dia (caderno azul)",
       "url": "https://www.preparaenem.com/enem/correcao-enem-2026.htm"
+    },
+    {
+      "nome": "Estuda.com – 1º dia (todas as cores)",
+      "url": "https://estuda.com/gabarito-extraoficial-enem-2026-prova-1/"
+    },
+    {
+      "nome": "Estuda.com – 2º dia (todas as cores)",
+      "url": "https://estuda.com/gabarito-extraoficial-enem-2026-prova-2/"
+    },
+    {
+      "nome": "O Globo (Colégio Elite + Amplia), via TVT News – 1º dia (todas as cores)",
+      "url": "https://tvtnews.com.br/gabarito-enem-2026-confira-respostas-do-enem/"
+    },
+    {
+      "nome": "Estudo Play, via Metrópoles – 2º dia (todas as cores)",
+      "url": "https://www.metropoles.com/brasil/enem-2026-confira-os-gabaritos-extraoficiais-do-segundo-dia-de-provas"
+    },
+    {
+      "nome": "ENEM Wiki – 2º dia (caderno azul)",
+      "url": "https://www.enemwiki.com.br/enem-2026"
+    },
+    {
+      "nome": "Sisu.pro.br – 2º dia (sem cor indicada; atribuído ao azul)",
+      "url": "https://www.sisu.pro.br/enem/enem-2026-confira-o-gabarito-extraoficial-do-segundo-dia-de-provas.html"
     }
   ]
 }
