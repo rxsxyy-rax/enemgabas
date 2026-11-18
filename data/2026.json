@@ -15,19 +15,15 @@
     "inep": "Inep (oficial)",
     "estrategia": "Estratégia",
     "aprovatotal": "Aprova Total",
-    "coc": "COC",
     "estuda": "Estuda.com",
     "oglobo": "O Globo (Elite/Amplia)",
-    "estudoplay": "Estudo Play",
-    "enemwiki": "ENEM Wiki",
-    "sisu": "Sisu.pro.br"
+    "estudoplay": "Estudo Play"
   },
   "_fontes_por_caderno": {
     "1": [
       "inep",
       "estrategia",
       "aprovatotal",
-      "coc",
       "estuda",
       "oglobo"
     ],
@@ -70,11 +66,8 @@
       "inep",
       "estrategia",
       "aprovatotal",
-      "coc",
       "estuda",
-      "estudoplay",
-      "enemwiki",
-      "sisu"
+      "estudoplay"
     ],
     "8": [
       "inep",
@@ -106,19 +99,17 @@
   },
   "divergencias": {
     "1": {
-      "13": "inep:D / estrategia:C / aprovatotal:D / coc:B / estuda:D / oglobo:D",
-      "24": "inep:D / estrategia:B / aprovatotal:D / coc:D / estuda:C / oglobo:D",
-      "26": "inep:E / estrategia:E / aprovatotal:B / coc:E / estuda:E / oglobo:E",
-      "30": "inep:A / estrategia:A / aprovatotal:E / coc:A / estuda:A / oglobo:A",
-      "32": "inep:A / estrategia:C / aprovatotal:C / coc:C / estuda:C / oglobo:C",
-      "43": "inep:E / estrategia:E / aprovatotal:E / coc:B / estuda:E / oglobo:E",
-      "44": "inep:D / estrategia:D / aprovatotal:A / coc:D / estuda:D / oglobo:D",
-      "45": "inep:E / estrategia:E / aprovatotal:E / coc:D / estuda:E / oglobo:E",
-      "46": "inep:C / estrategia:C / aprovatotal:C / coc:C / estuda:D / oglobo:C",
-      "48": "inep:C / estrategia:C / aprovatotal:C / coc:C / estuda:C / oglobo:D",
-      "51": "inep:B / estrategia:B / aprovatotal:B / coc:B / estuda:E / oglobo:B",
-      "71": "inep:B / estrategia:A / aprovatotal:B / coc:A / estuda:A / oglobo:B",
-      "83": "inep:E / estrategia:E / aprovatotal:A / coc:E / estuda:E / oglobo:E"
+      "13": "inep:D / estrategia:C / aprovatotal:D / estuda:D / oglobo:D",
+      "24": "inep:D / estrategia:B / aprovatotal:D / estuda:C / oglobo:D",
+      "26": "inep:E / estrategia:E / aprovatotal:B / estuda:E / oglobo:E",
+      "30": "inep:A / estrategia:A / aprovatotal:E / estuda:A / oglobo:A",
+      "32": "inep:A / estrategia:C / aprovatotal:C / estuda:C / oglobo:C",
+      "44": "inep:D / estrategia:D / aprovatotal:A / estuda:D / oglobo:D",
+      "46": "inep:C / estrategia:C / aprovatotal:C / estuda:D / oglobo:C",
+      "48": "inep:C / estrategia:C / aprovatotal:C / estuda:C / oglobo:D",
+      "51": "inep:B / estrategia:B / aprovatotal:B / estuda:E / oglobo:B",
+      "71": "inep:B / estrategia:A / aprovatotal:B / estuda:A / oglobo:B",
+      "83": "inep:E / estrategia:E / aprovatotal:A / estuda:E / oglobo:E"
     },
     "2": {
       "8": "inep:D / estrategia:B / aprovatotal:D / estuda:C / oglobo:D",
@@ -166,9 +157,7 @@
       "164": "inep:X / estrategia:C / aprovatotal:C / estuda:C / estudoplay:C"
     },
     "7": {
-      "121": "inep:B / estrategia:B / aprovatotal:B / coc:C / estuda:B / estudoplay:B / enemwiki:B / sisu:B",
-      "153": "inep:C / estrategia:C / aprovatotal:C / coc:C / estuda:C / estudoplay:C / enemwiki:C / sisu:B",
-      "159": "inep:X / estrategia:C / aprovatotal:C / coc:C / estuda:C / estudoplay:C / enemwiki:C / sisu:C"
+      "159": "inep:X / estrategia:C / aprovatotal:C / estuda:C / estudoplay:C"
     },
     "8": {
       "158": "inep:X / estrategia:C / aprovatotal:C / estuda:C / estudoplay:C",
@@ -181,8 +170,7 @@
   },
   "avisos": [
     "Resposta exibida = gabarito oficial do Inep. As fontes extraoficiais aparecem como votos em cada questão; 'divergencias' lista as questões em que alguma delas difere do Inep.",
-    "Uma questão de Matemática foi anulada pelo Inep: 153 no caderno Amarelo, 164 no Cinza, 159 no Azul e 158 no Verde (2º dia).",
-    "O gabarito do Sisu.pro.br não indica a cor do caderno; foi atribuído ao Azul do 2º dia por coincidir com ele em 89 das 90 questões."
+    "Uma questão de Matemática foi anulada pelo Inep: 153 no caderno Amarelo, 164 no Cinza, 159 no Azul e 158 no Verde (2º dia)."
   ],
   "fontes": [
     {
@@ -214,10 +202,6 @@
       "url": "https://aprovatotal.com.br/gabarito-enem-2026/"
     },
     {
-      "nome": "PrePara Enem / Sistema COC – 1º e 2º dia (caderno azul)",
-      "url": "https://www.preparaenem.com/enem/correcao-enem-2026.htm"
-    },
-    {
       "nome": "Estuda.com – 1º dia (todas as cores)",
       "url": "https://estuda.com/gabarito-extraoficial-enem-2026-prova-1/"
     },
@@ -232,14 +216,6 @@
     {
       "nome": "Estudo Play, via Metrópoles – 2º dia (todas as cores)",
       "url": "https://www.metropoles.com/brasil/enem-2026-confira-os-gabaritos-extraoficiais-do-segundo-dia-de-provas"
-    },
-    {
-      "nome": "ENEM Wiki – 2º dia (caderno azul)",
-      "url": "https://www.enemwiki.com.br/enem-2026"
-    },
-    {
-      "nome": "Sisu.pro.br – 2º dia (sem cor indicada; atribuído ao azul)",
-      "url": "https://www.sisu.pro.br/enem/enem-2026-confira-o-gabarito-extraoficial-do-segundo-dia-de-provas.html"
     }
   ]
 }
