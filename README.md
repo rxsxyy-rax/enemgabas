@@ -20,7 +20,7 @@ Acesse <http://localhost:3000> (ou defina a porta com a variável `PORT`).
 
 ## Adicionando um novo ano
 
-1. Crie `data/<ano>.json` seguindo o formato de `data/2026.json`.
+1. Copie `data/template.json` para `data/<ano>.json` e preencha (formato completo em `data/2026.json`).
 2. Copie `views/template.html` para `views/<ano>.html` e aponte o `data-json` para o novo arquivo.
 3. A página fica disponível em `/<ano>`.
 

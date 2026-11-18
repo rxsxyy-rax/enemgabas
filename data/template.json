@@ -1,0 +1,65 @@
+{
+  "_info": "Gabarito extraoficial do Enem 20XX. Cada string tem as respostas em ordem (cadernos 1-4: questões 6-90, com Inglês/Espanhol 1-5 à parte; cadernos 5-8: questões 91-180). X = questão anulada.",
+  "_cadernos": {
+    "1": "Cor (1º dia)",
+    "2": "Cor (1º dia)",
+    "3": "Cor (1º dia)",
+    "4": "Cor (1º dia)",
+    "5": "Cor (2º dia)",
+    "6": "Cor (2º dia)",
+    "7": "Cor (2º dia)",
+    "8": "Cor (2º dia)"
+  },
+  "_fonte_principal": "fonte1",
+  "_fontes_nomes": {
+    "fonte1": "Fonte 1",
+    "fonte2": "Fonte 2"
+  },
+  "_fontes_por_caderno": {
+    "1": ["fonte1", "fonte2"],
+    "2": ["fonte1", "fonte2"],
+    "3": ["fonte1", "fonte2"],
+    "4": ["fonte1", "fonte2"],
+    "5": ["fonte1", "fonte2"],
+    "6": ["fonte1", "fonte2"],
+    "7": ["fonte1", "fonte2"],
+    "8": ["fonte1", "fonte2"]
+  },
+  "1": "",
+  "2": "",
+  "3": "",
+  "4": "",
+  "5": "",
+  "6": "",
+  "7": "",
+  "8": "",
+  "ingles_1a5": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": ""
+  },
+  "espanhol_1a5": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": ""
+  },
+  "divergencias": {
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {}
+  },
+  "avisos": [],
+  "fontes": [
+    {
+      "nome": "Fonte 1",
+      "url": "https://"
+    }
+  ]
+}
