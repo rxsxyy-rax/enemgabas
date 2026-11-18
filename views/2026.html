@@ -21,6 +21,12 @@
         <button type="button" id="marcar" aria-pressed="false"
                 data-on="Modo de marcação: ligado" data-off="Modo de marcação: desligado">Modo de marcação: desligado</button>
         <button type="button" id="limpar" data-confirm="Apagar todas as marcações?">Limpar marcações</button>
+        <button type="button" id="exportar" data-filename="enemgabas-marcacoes"
+                data-info="Respostas marcadas no EnemGabas, no mesmo formato do gabarito: cada string tem um caractere por questão, na mesma ordem. C = certa, E = errada, - = não marcada, X = questão anulada.">Exportar respostas</button>
+        <button type="button" id="importar"
+                data-confirm="Substituir as marcações atuais pelas do arquivo?"
+                data-erro="Arquivo inválido: não foi possível importar as respostas.">Importar respostas</button>
+        <input type="file" id="importar-arquivo" accept="application/json,.json" hidden>
         <span class="marking-hint">1º clique: certa · 2º clique: errada · 3º clique: limpa · botão direito/segurar: fontes</span>
         <div class="caderno-selects">
             <label id="sel-dia1" hidden>Caderno do 1º dia: <select id="caderno-dia1"><option value="">Todos</option></select></label>

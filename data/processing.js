@@ -223,6 +223,8 @@
 
     const marking = setupMarking();
     setupCadernoSelector(marking, cadernoName);
+    // Import may restore notebook choices, so it needs the selectors filled first.
+    setupImportExport(data, marking.marks, marking.refreshAll);
 
     // ---- Fontes ----
     const fontes = $("fontes");
@@ -325,7 +327,147 @@
       saveMarks(marks);
     });
 
-    return { refresh: () => SECTIONS.forEach(updateCounter) };
+    return {
+      marks,
+      refresh: () => SECTIONS.forEach(updateCounter),
+      // After replacing `marks` wholesale (import): repaint, recount and save.
+      refreshAll: () => {
+        cells.forEach(applyState);
+        SECTIONS.forEach(updateCounter);
+        saveMarks(marks);
+      },
+    };
+  }
+
+  // Export / import the user's answers as a JSON file laid out like the answer-key
+  // JSON: one string per caderno (and per caderno inside "ingles_1a5"/"espanhol_1a5"),
+  // one character per question in the same order:
+  //   C = certa, E = errada, - = não marcada, X = anulada.
+  // "_preferencias" keeps the chosen notebooks and language.
+  const PREFS = ["caderno-dia1", "caderno-dia2", "lingua"];
+  const LINGUAS = ["ingles_1a5", "espanhol_1a5"];
+  const CODE = { certa: "C", errada: "E" };
+  const DECODE = { C: "certa", E: "errada" };
+
+  function setupImportExport(data, marks, refresh) {
+    const exportBtn = $("exportar");
+    const importBtn = $("importar");
+    const input = $("importar-arquivo");
+
+    // Question number at position i of a key string (same rules as answer()).
+    const questionAt = (c, len, i) => (DAY1.includes(c) ? (len === 90 ? i + 1 : i + 6) : i + 91);
+
+    // Every answer string in the answer key: { lang, c, key, qAt }.
+    function strings() {
+      const list = [];
+      Object.keys(data).filter((c) => /^\d+$/.test(c) && typeof data[c] === "string")
+        .forEach((c) => list.push({ lang: "", c, key: data[c], qAt: (i) => questionAt(c, data[c].length, i) }));
+      LINGUAS.filter((lang) => data[lang]).forEach((lang) => Object.keys(data[lang])
+        .forEach((c) => list.push({ lang, c, key: data[lang][c], qAt: (i) => i + 1 })));
+      return list;
+    }
+
+    // Answer buttons by "lingua|caderno|question".
+    function buttons() {
+      const map = new Map();
+      document.querySelectorAll(".caderno-group button.ans").forEach((btn) => {
+        const lang = btn.closest("[data-lingua]");
+        const c = btn.closest(".caderno-group").dataset.caderno;
+        map.set(`${lang ? lang.dataset.lingua : ""}|${c}|${btn.querySelector(".q").textContent}`, btn);
+      });
+      return map;
+    }
+
+    // JSON with 2-space indent, keeping insertion order (JS would put "1".."8" first).
+    const toJson = (entries) => `{\n${entries
+      .map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v, null, 2).replace(/\n/g, "\n  ")}`)
+      .join(",\n")}\n}\n`;
+
+    if (exportBtn) exportBtn.addEventListener("click", () => {
+      const btns = buttons();
+      const encode = ({ lang, c, key, qAt }) => [...key].map((letter, i) => {
+        if (letter === ANULADA) return ANULADA;
+        const b = btns.get(`${lang}|${c}|${qAt(i)}`);
+        return (b && CODE[marks[b.dataset.mark]]) || "-";
+      }).join("");
+
+      const prefs = {};
+      PREFS.forEach((id) => { const s = $(id); if (s && s.value) prefs[id] = s.value; });
+
+      const entries = [
+        ["_info", exportBtn.dataset.info || ""],
+        ["_gabarito", jsonUrl],
+        ["_exportado", new Date().toISOString()],
+      ];
+      if (data._cadernos) entries.push(["_cadernos", data._cadernos]);
+      entries.push(["_preferencias", prefs]);
+      const langs = {};
+      strings().forEach((s) => {
+        if (!s.lang) return entries.push([s.c, encode(s)]);
+        (langs[s.lang] = langs[s.lang] || {})[s.c] = encode(s);
+      });
+      LINGUAS.filter((l) => langs[l]).forEach((l) => entries.push([l, langs[l]]));
+
+      const blob = new Blob([toJson(entries)], { type: "application/json" });
+      const a = el("a", null, {
+        href: URL.createObjectURL(blob),
+        download: `${exportBtn.dataset.filename || "marcacoes"}-${jsonUrl.split("/").pop()}`,
+      });
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+
+    if (!importBtn || !input) return;
+    importBtn.addEventListener("click", () => input.click());
+    input.addEventListener("change", () => {
+      const file = input.files && input.files[0];
+      input.value = "";
+      if (!file) return;
+      file.text().then((text) => {
+        const parsed = JSON.parse(text);
+        if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("formato");
+
+        // Collect the new marks before touching the current ones.
+        const btns = buttons();
+        const next = {};
+        let found = 0;
+        // Older exports: { marcacoes: { "<data-mark>": "certa" | "errada" }, preferencias }.
+        if (parsed.marcacoes && typeof parsed.marcacoes === "object") {
+          found++;
+          Object.entries(parsed.marcacoes).forEach(([k, v]) => { if (v === "certa" || v === "errada") next[k] = v; });
+          parsed._preferencias = parsed._preferencias || parsed.preferencias;
+        }
+        strings().forEach(({ lang, c, qAt }) => {
+          const s = lang ? parsed[lang] && parsed[lang][c] : parsed[c];
+          if (typeof s !== "string") return;
+          found++;
+          [...s].forEach((ch, i) => {
+            const b = btns.get(`${lang}|${c}|${qAt(i)}`);
+            if (b && b.dataset.mark && DECODE[ch]) next[b.dataset.mark] = DECODE[ch];
+          });
+        });
+        if (!found) throw new Error("formato");
+        if (!confirm(importBtn.dataset.confirm)) return;
+
+        Object.keys(marks).forEach((k) => delete marks[k]);
+        Object.assign(marks, next);
+
+        // Restore notebook/language choices (their change handlers save and refresh).
+        Object.entries(parsed._preferencias || {}).forEach(([id, value]) => {
+          const s = PREFS.includes(id) && $(id);
+          if (s && [...s.options].some((o) => o.value === value) && s.value !== value) {
+            s.value = value;
+            s.dispatchEvent(new Event("change"));
+          }
+        });
+        refresh();
+      }).catch((err) => {
+        console.error(err);
+        alert(importBtn.dataset.erro);
+      });
+    });
   }
 
   // Notebook (caderno) color selector: one per day, shows only the chosen notebook.
